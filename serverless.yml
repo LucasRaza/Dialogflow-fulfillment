@@ -1,0 +1,13 @@
+service: serverless-nodejs-app
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: handler.server # reference the file and exported method
+    events: # events trigger lambda functions
+      - http: ANY / # this is an API Gateway HTTP event trigger
